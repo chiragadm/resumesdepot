@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResumesDepot</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="styesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!-- Header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="/home/">ResumesDepot</a>
+            </div>
+
+            <!-- More Menu -->
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="">
+                        <a href="/upload/">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>&nbsp
+                            Upload Resume
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/search/">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp
+                            Search Resumes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

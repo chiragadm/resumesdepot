@@ -1,0 +1,68 @@
+{% extends 'upload/base.html' %}
+
+{% block body %}
+    <div align="center" align="center" style="font-family: 'Open Sans', sans-serif; font-size: 36px">
+    <h3">Upload Resume</h3>
+    </div>
+     <div align="center" style="font-family: 'Open Sans', sans-serif; font-size: 16px">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="upload_file">
+        <button type="submit">Upload</button>
+    </form>
+    </div>
+
+    <div style="width: 450px; height: 250px; float:left; font-family: 'Open Sans', sans-serif; font-size: 16px; padding-left: 50px; padding-top: 30px;">
+        <p>We accept upload of resume with minimum json object provided in this box. </p>
+        <p>Upload Information:</p>
+        {% if  upload_info == None %}
+            <ul><li>You have not yet uploaded resume file.</li></ul>
+        {% else %}
+            <ul><li>{{ upload_info }}</li></ul>
+        {% endif %}
+
+    </div>
+
+    <div style="width: 550px; height: 350px; float:right; font-family: 'Open Sans', sans-serif; font-size: 16px; padding-right: 50px; padding-top: 30px;">
+        <p>Minimum Resume Schema:</p>
+        <div id="" style="overflow-y: scroll;  height: 300px;">
+<pre>
+     {
+        "basics": {
+          "name": "string",
+          "label": "string",
+          "email": "string",
+          "phone": "string",
+          "summary": "string",
+          "location": {
+            "address": "string",
+            "postalCode": "string",
+            "city": "string",
+            "countryCode": "string"
+          }},
+        "work": [{
+          "company": "string",
+          "position": "string",
+          "startDate": "string",
+          "endDate": "string",
+          "summary": "string",
+          "highlights": ["string"]
+        }],
+        "education": [{
+          "institution": "string",
+          "area": "Software string"
+        }],
+        "skills": [{
+          "name": "string",
+          "keywords": [ "string" ]
+        }]
+    }
+</pre>
+        </div>
+
+    {% if uploaded_file_url %}
+      <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+    {% endif %}
+
+
+{% endblock %}

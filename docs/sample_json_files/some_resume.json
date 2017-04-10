@@ -1,0 +1,101 @@
+{
+  "basics": {
+    "name": "Joe Smith",
+    "label": "Consultant Solution Architect",
+    "picture": "",
+    "email": "joe.smith@example.com",
+    "phone": "(123) 456-7890",
+    "website": "",
+    "summary": "Lead Advisory Solution Architect engineer with 15 years of strong hands-on experience in designing, implementing, configuring and managing EMC, Cisco MDS, NetApp, Brocade infrastructure. I bring an innovative and practical approach in analyzing complex business needs to design and implement cutting edge solutions based on latest storage and cloud technologies. Productive self-starter with good communication skills, ability to work well independently as well as in a cross-functional team environment.",
+    "location": {
+      "address": "12345 Some Ln",
+      "postalCode": "TX 12345",
+      "city": "SomeCity",
+      "countryCode": "USA"
+    },
+    "profiles": [{
+      "network": "Twitter",
+      "username": "someuser",
+      "url": "http://twitter.com/someuser"
+    }]
+  },
+  "work": [{
+    "company": "SomeCompany 1",
+    "position": "Consultant Solution Architect",
+    "website": "https://somecompany1.com",
+    "startDate": "2007-10-29",
+    "endDate": "",
+    "summary": "Working for a top networking client for over 7 years as a Advisory Solution Architect to build and implement new Data Centers and their infrastructures. Designed, implemented, managed technology refresh projects for EMC VMAX3, VMAX, DMX, VNX, RecoverPoint, VPLEX,  Clariions, Celerra, NetApp FAS and V-Series disk arrays with an environment consisting of over 30 PetaBytes of Storage capacity spread across global datacenters. Worked on Cisco MDS hardware and software upgrades.",
+    "highlights": [
+      "Participated in state of the art data center builds and architected storage and network infrastructure pertained new data center requirements.",
+      "Architected and coded VMAX license consumption  dashboard using Python ",
+      "Designed and created standards for VMAX3, VMAX, VMAX FAST-VP, RecoverPoint, VNX, VPLEX, MDS and UCS infrastructure for global datacenters.",
+      "Designed several VMAX bin files to meet client requirements considering performance and usage aspects.",
+      "Performed performance analysis on VMAX frames using Unisphere for VMAX and SymmMerge tools.",
+      "Designed and implemented several VNX block installs.",
+      "Designed and executed several data migration within and across datacenters using SRDF, Open Migrator, FLM, RecoverPoint. ",
+      "Configured disaster recovery solution for VMware environment with SRM using SRDF SRA. ",
+      "Designed and implemented several disaster recovery solutions for Oracle database using SRDF/A technology.",
+      "Installed and configured Cisco MDS 9710 / 9513 director switches. Configured base-configs, port channels, VSANs and CFS regions appropriately.",
+      "Designed and executed several big Cisco MDS in-place hardware upgrades.",
+      "Upgraded NX-OS on Cisco MDS switches.",
+      "Participated in several new datacenter builds where designed and implemented storage (SAN/NAS) infrastructure.",
+      "Configured multiple UCS B series blades for SAN connectivity via creating F-Port trunks and configuring service profiles. ",
+      "Designed and configured several VMAX FAST-VP implementations. ",
+      "Participated in the new installs and upgrades of NetApp V-Series and FAS Systems.",
+      "Configured virtual interfaces, aggregates and volumes meeting the Netapp recommended standards.",
+      "Configured several vfilers in multi-tenant IaaS environment."
+    ]
+  },
+  {
+    "company": "SomeCompany2",
+    "position": "Solution Architect",
+    "website": "",
+    "startDate": "2004-01-01",
+    "endDate": "2007-10-28",
+    "summary": "A senior level solution architect with six (8) years experience supporting enterprise computing infrastructure and applications. A diverse background with emphasis on enterprise storage. Experienced in heterogeneous Database and application environments (7x24) across a variety of industries.  Known for professionalism as well as being an ambitious, dedicated individual who demonstrates strong ethics, excellent written and communication skills along with excellent customer relation and knowledge training and transfer skills.  Extremely dedicated to superior customer service and high quality job performance.",
+    "highlights": [
+      "Provided SRDF solution for DR.",
+      "Designed and implemented SAN (Mcdata, Brocade and Cisco) Fabrics",
+      "Planned and migrated several TB of data from Symmetrixs to new DMX using SRDF and host specific Logical Volume Managers.",
+      "Architected BIN file for several DMX installations.",
+      "Implemented SRDF/AR DR solution for client.",
+      "Wrote and installed TimeFinder and SRDF scripts for customer.",
+      "Designed Snapview environment for customer.",
+      "Architected RM/SE between two CX700 for DR solution.",
+      "Installed and configured several Clariions for specific applications such as Exchange, Oracle Database, and Sybase.",
+      "Architected and implemented several Clariions and Snapview / Snapshot solutions.",
+      "Implemented recovery solution after assessing (Data Center Loss) disaster at customer site which led customer up and running with in 8 hours."
+    ]
+  }
+  ],
+  "education": [{
+    "institution": "University of Somthing at Somewhere",
+    "area": "Computer Science"
+  }],
+  "skills": [{
+    "name": "LANGUAGES & DEVELOPMENT TOOLS",
+    "level": "",
+    "keywords": ["Shell Scripting", "Python", "Perl"]
+  },
+  {
+    "name": "OPERATING SYSTEMS, UTILITIES & VIRTUALIZATION TOOLS",
+    "level": "",
+    "keywords": ["Linux", "Solaris", "HP-UX", "VMware"]
+  },
+    {
+    "name": "NETWORK SYSTEMS & TECHNOLOGIES",
+    "level": "",
+    "keywords": ["Cisco UCS", "Cisco NX5K", "Cisco NX-OS"]
+  },
+      {
+    "name": "DATABASE MANAGEMENT SYSTEMS",
+    "level": "",
+    "keywords": ["MongoDB", "SQL Queries"]
+  }
+  ],
+  "languages": [{
+    "name": "English",
+    "level": "Native speaker"
+  }]
+}

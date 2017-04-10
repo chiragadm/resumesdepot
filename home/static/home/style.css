@@ -1,0 +1,11 @@
+body {
+    background: white url("images/background.png");
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.css-selector {font-family: 'Open Sans', sans-serif; font-size: 40px}
+p.san {font-family: 'Open Sans', sans-serif; font-size: 40px}
+

@@ -1,0 +1,22 @@
+{% extends 'upload/base.html' %}
+
+{% block body %}
+    {%  if query_resumes_count %}
+        <h3 style="padding-left: 10px">Total Resumes In List: {{ query_resumes_count }}</h3>
+
+
+        <form action="" method="get" accept-charset="utf-8">
+            &nbsp&nbsp<input  id="find" name="find" type="text" placeholder="Search">
+            <button class="btn btn-group" type="submit">Submit</button>
+        </form>
+
+
+        <ul>
+            {% for resume in query_resumes %}
+                <li><a href="{% url 'search:detail' resume.id %}">{{ resume.basics.name }} {{ resume.basics.label }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>There are no resumes in databases as of now. Please upload json file to the database!</h3>
+    {% endif %}
+{% endblock %}

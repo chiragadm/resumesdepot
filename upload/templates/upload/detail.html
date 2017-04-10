@@ -1,0 +1,150 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'search/reset-resume-font.css' %}" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'search/resume.css' %}" media="all" />
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+                    {% if resume.basics.name %}
+                        <h1>{{ resume.basics.name }}</h1>
+                    {% endif %}
+
+					<!-- <h1>Jonathan Doe</h1> -->
+                    {% if resume.basics.label %}
+                        <h2>{{ resume.basics.label }}</h2>
+                    {% endif %}
+					<!-- <h2>Web Designer, Director</h2> -->
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+                        {% if resume.basics.email %}
+                            <h3>{{ resume.basics.email }}</h3>
+                        {% endif %}
+                        {% if resume.basics.phone %}
+                            <h3>{{ resume.basics.phone }}</h3>
+                        {% endif %}
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+                    {% if resume.basics.summary %}
+					    <div class="yui-gf">
+					    	<div class="yui-u first">
+					    		<h2>Summary</h2>
+					    	</div>
+					    	<div class="yui-u">
+					    		<p>
+
+					    			{{ resume.basics.summary }}
+					    		</p>
+					    	</div>
+					    </div><!--// .yui-gf -->
+                    {% endif %}
+
+                    {% if resume.skills %}
+					    <div class="yui-gf">
+					    	<div class="yui-u first">
+					    		<h2>Skills</h2>
+					    	</div>
+					    	<div class="yui-u">
+                                {% for skill in resume.skills %}
+                                    <br>
+                                    {% if skill.name %}
+                                        <b><h4>{{ skill.name }} : </h4></b>
+                                    {% endif %}
+                                    {% if skill.keywords %}
+                                        {% for key in skill.keywords %}
+                                            {{ key }},
+                                        {% endfor %}
+                                    {% endif %}
+                                    <br>
+
+                                {% endfor %}
+					    	</div>
+					    </div><!--// .yui-gf -->
+                    {% endif %}
+
+                    {% if resume.work %}
+                        <div class="yui-gf">
+
+					    	<div class="yui-u first">
+					    		<h2>Work Experience</h2>
+					    	</div><!--// .yui-u -->
+
+					    	<div class="yui-u">
+                                {% for job in resume.work %}
+                                    <div class="job">
+                                    {% if job.company %}
+                                        <h2>{{ job.company }}</h2>
+                                    {% endif %}
+                                    {% if job.position %}
+                                        <h3>{{ job.position }}</h3>
+                                    {% endif %}
+                                    {% if job.startDate %}
+                                        <h4>{{ job.startDate }} -
+                                            {% if job.endDate == '' %}
+                                                Present
+                                            {% else %}
+                                                {{ job.endDate }}
+                                            {% endif %}
+                                        </h4>
+                                    {% endif %}
+                                    {% if job.summary %}
+                                        <p>{{ job.summary }}</p>
+                                    {% endif %}
+                                    {% for h_list in job.highlights %}
+                                        <ul type="circle">{{ h_list }}</ul>
+                                    {% endfor %}
+
+                                    </div>
+                                {% endfor %}
+
+					    	</div><!--// .yui-u -->
+					    </div><!--// .yui-gf -->
+                        {% endif %}
+
+                        {% if resume.education %}
+					         <div class="yui-gf last">
+					        	<div class="yui-u first">
+					        		<h2>Education</h2>
+					        	</div>
+                             <div class="yui-u">
+                             {% for edu in resume.education %}
+                                 {%  if edu.institution %}
+                                     <h2>{{ edu.institution }}</h2>
+                                 {% endif %}
+                                 {%  if edu.area %}
+                                     <h3>{{ edu.area }}</h3>
+                                 {% endif %}
+                             {% endfor %}
+                             </div>
+					        	<!-- <div class="yui-u">
+					        		<h2>Indiana University - Bloomington, Indiana</h2>
+					        		<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
+					        	</div> -->
+                             </div><!--// .yui-gf -->
+                        {% endif %}
+
+
+
+                </div><!--// .yui-b -->
+            </div><!--// yui-main -->
+        </div><!--// bd -->
+	</div><!-- // inner -->
+</div><!--// doc -->
+
+
+
+
+<!-- <br>{{ resume }}<br> -->
+<br>{{ resume }}<br>
+
