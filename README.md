@@ -19,3 +19,12 @@ Following are prerequisites softwares.
   * Run following command:
   * ansible-playbook -u ec2-user --key-file=YourKeyFile  -i inventory.txt  ./install_resumesdepot_app.yml
 
+# How To Use This Application:
+* Following is representation of home page of this application. It provides some information about this app.
+![](https://github.com/chiragadm/resumesdepot/blob/master/docs/home.jpeg)
+* Following is representation of upload page. Resumes can be uploaded from here to the database.
+![](https://github.com/chiragadm/resumesdepot/blob/master/docs/upload.jpeg)
+* Following is representation of search page. It can provide all the resumes in database or you may search for specific ones.
+![](https://github.com/chiragadm/resumesdepot/blob/master/docs/search.jpeg)
+* Following is representation of detail resume page. Once you click on specific resume, it will take you to this page.
+![](https://github.com/chiragadm/resumesdepot/blob/master/docs/detail.jpeg)
