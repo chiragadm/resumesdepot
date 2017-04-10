@@ -103,6 +103,13 @@
        owner: root
        mode: 0755
 
+  - name: If /data/db Does Not Exist, Create It.
+    file:
+       path: /data/db
+       state: directory
+       owner: root
+       mode: 0755
+
 
   - name: Install ResumesDepot App from Git
     git:
@@ -120,8 +127,9 @@
       path: /tmp/create_db.sh
       mode: 0755
 
-  - name: Crate MongoDB Database, Create User, Create Collection And Indexes
-    shell: /tmp/create_db.sh
+#  - name: Crate MongoDB Database, Create User, Create Collection And Indexes
+#    command: /bin/bash /tmp/create_db.sh
+
 
   - name: Change /etc/init.d/start_webserver File Permission.
     file:
