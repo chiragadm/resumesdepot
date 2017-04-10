@@ -11,4 +11,11 @@ Following are prerequisites softwares.
   * mongoengine
   * requests
 * mongodb
+* # Ansible Playbook Install Processs:
+  * install_with_ansible directory provides ansible-playbook to install this application on AWS ec2 (RehdHat x86 7) instance. You may run following command to install this applicaton.
+  * cd install_with_ansible
+  * Add your ec2 instance name below [ec2] section in "inventory.txt" file.
+  * You will also need your ec2 instance key file. Please keep it handy.
+  * Run following command:
+  * ansible-playbook -u ec2-user --key-file=YourKeyFile  -i inventory.txt  ./install_resumesdepot_app.yml
 
