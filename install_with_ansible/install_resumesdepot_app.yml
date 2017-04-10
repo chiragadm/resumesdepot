@@ -8,6 +8,7 @@
        mongo_repo: "files/mongodb-org-3.2.repo"
        create_db: "files/create_db.sh"
        start_web: "files/start_webserver"
+       resumesdepot_tar: "files/resumesdepot.tar"
 
   tasks:
   - name: Copy MongoDB Repository To /etc/yum.repos.d
@@ -25,6 +26,11 @@
     copy:
        src: "{{ start_web }}"
        dest: "/etc/init.d"
+
+  - name: Copy ResumesDepot Tar.
+    copy:
+       src: "{{ resumesdepot_tar }}"
+       dest: "/tmp"
 
   - name: Install wget.
     yum:
@@ -97,10 +103,11 @@
        owner: root
        mode: 0755
 
+
   - name: Install ResumesDepot App from Git
     git:
-      repo: "https://github.com/chiragadm/resumesdepot.git"
-      dest: /apps/resumesdepot
+     repo: "https://github.com/chiragadm/resumesdepot.git"
+     dest: /apps/resumesdepot
 
   - name: Start MongoDB
     service:
@@ -121,6 +128,5 @@
       path: /etc/init.d/start_webserver
       mode: 0755
 
-  - name: Start Webserver
-    shell: /etc/init.d/start_webserver
-
+#  - name: Start Webserver
+#    shell: /etc/init.d/start_webserver
