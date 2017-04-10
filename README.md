@@ -17,7 +17,14 @@ Following are prerequisites softwares.
   * Add your ec2 instance name below [ec2] section in "inventory.txt" file.
   * You will also need your ec2 instance key file. Please keep it handy.
   * Run following command:
-  * ansible-playbook -u ec2-user --key-file=YourKeyFile  -i inventory.txt  ./install_resumesdepot_app.yml
+   * ansible-playbook -u ec2-user --key-file=YourKeyFile  -i inventory.txt  ./install_resumesdepot_app.yml
+  * As of now due to some bug, we need to create mongodb database and indexes. Following are the steps using cli.
+    * mongo
+    * use resumesdepot
+    * db.createUser({user: "user",pwd: "securityrock",roles: [ "readWrite", "dbAdmin" ]})
+    * db.resumes.ensureIndex({"$**":"text"})
+   * /etc/init.d/start_webserver
+   
 
 # How To Use This Application:
 * Following is representation of home page of this application. It provides some information about this app.
