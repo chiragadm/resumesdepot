@@ -1,0 +1,140 @@
+---
+# Installing ResumesDepot to EC2 Instance
+- hosts: ec2
+  remote_user: ec2-user
+  become: yes
+  gather_facts: True
+  vars:
+       mongo_repo: "files/mongodb-org-3.2.repo"
+       create_db: "files/create_db.sh"
+       start_web: "files/start_webserver"
+       resumesdepot_tar: "files/resumesdepot.tar"
+
+  tasks:
+  - name: Copy MongoDB Repository To /etc/yum.repos.d
+    copy:
+       src: "{{ mongo_repo }}"
+       dest: "/etc/yum.repos.d"
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Copy MongoDB Configuration Script
+    copy:
+       src: "{{ create_db }}"
+       dest: "/tmp"
+
+  - name: Copy Webserver Startup Script.
+    copy:
+       src: "{{ start_web }}"
+       dest: "/etc/init.d"
+
+  - name: Copy ResumesDepot Tar.
+    copy:
+       src: "{{ resumesdepot_tar }}"
+       dest: "/tmp"
+
+  - name: Install wget.
+    yum:
+       name: "wget"
+       state: present
+       disable_gpg_check: yes
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Get_URL for EPEL Repo
+    get_url:
+      url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      dest: /tmp/epel-release-latest-7.noarch.rpm
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Install EPEL Repo
+    yum:
+      name: "/tmp/epel-release-latest-7.noarch.rpm"
+      state: present
+      disable_gpg_check: yes
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Install Python3.4
+    yum:
+      name: "python34"
+      state: present
+      disable_gpg_check: yes
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Install PIP3
+    yum:
+      name: "python34-pip"
+      state: present
+      disable_gpg_check: yes
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Install GIT
+    yum:
+      name: "git"
+      state: present
+      disable_gpg_check: yes
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+
+  - name: Install MongoDB
+    yum:
+      name: "mongodb-org"
+      state: present
+      disable_gpg_check: yes
+    when: (ansible_machine == "x86_64" and ansible_distribution == "RedHat" )
+
+  - name: Install PIP Module requests
+    pip:
+      name: "requests"
+      executable: pip3
+
+  - name: Install PIP Module django
+    pip:
+      name: "django"
+      executable: pip3
+
+  - name: Install PIP Module mongoengin
+    pip:
+      name: "mongoengine"
+      executable: pip3
+
+  - name: If /apps/resumesdepot Does Not Exist, Create It.
+    file:
+       path: /apps/resumesdepot
+       state: directory
+       owner: root
+       mode: 0755
+
+  - name: If /data/db Does Not Exist, Create It.
+    file:
+       path: /data/db
+       state: directory
+       owner: root
+       mode: 0755
+
+
+  - name: Install ResumesDepot App from Git
+    git:
+     repo: "https://github.com/pz1657-github/resumesdepot.git"
+     dest: /apps/resumesdepot
+
+  - name: Start MongoDB
+    service:
+       name: mongod
+       state: started
+       enabled: yes
+
+  - name: Change /tmp/create_db.sh File Permission.
+    file:
+      path: /tmp/create_db.sh
+      mode: 0755
+
+#  - name: Crate MongoDB Database, Create User, Create Collection And Indexes
+#    command: /bin/bash /tmp/create_db.sh
+
+
+  - name: Change /etc/init.d/start_webserver File Permission.
+    file:
+      path: /etc/init.d/start_webserver
+      mode: 0755
+
+#  - name: Start Webserver
+#    shell: /etc/init.d/start_webserver

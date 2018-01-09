@@ -1,22 +1,27 @@
 {
   "basics": {
-    "name": "Mark Smith",
-    "label": "Consultant Solution Architect",
+    "name": "VxRail 4-node ROBO Solution",
+    "label": "HyperConverged InfraStructure",
     "picture": "",
-    "email": "chriag.patel@dell.com",
-    "phone": "(214) 693-0073",
-    "website": "",
-    "summary": "Lead Advisory Solution Architect engineer with 15 years of strong hands-on experience in designing, implementing, configuring and managing EMC, Cisco MDS, NetApp, Brocade infrastructure. I bring an innovative and practical approach in analyzing complex business needs to design and implement cutting edge solutions based on latest storage and cloud technologies. Productive self-starter with good communication skills, ability to work well independently as well as in a cross-functional team environment.",
+    "email": "pat.zielinski@dell.com",
+    "phone": "(408) 981-3554",
+    "website": "https://www.emc.com/collateral/specification-sheet/vxrail-4.0-spec-sheet.pdf",
+    "summary": "The Dell EMC VxRail Appliance architecture is a distributed system consisting of
+common modular building blocks that scale linearly from 3 to 64 nodes in a cluster. With
+the power of a whole Storage Area Network (SAN), it provides a simple, cost-effective
+hyper-converged solution that delivers multiple compute, memory, storage, network and
+graphics options to match any use case and cover a wide variety of applications and
+workloads.",
     "location": {
-      "address": "14074 Carly Ln",
+      "address": "",
       "postalCode": "TX 75035",
       "city": "Frisco",
       "countryCode": "USA"
     },
     "profiles": [{
-      "network": "Twitter",
-      "username": "chiragadm",
-      "url": "http://twitter.com/chiragadm"
+      "network": "",
+      "username": "",
+      "url": ""
     }]
   },
   "work": [{
