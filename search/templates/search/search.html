@@ -2,7 +2,7 @@
 
 {% block body %}
     {%  if query_resumes_count %}
-        <h3 style="padding-left: 10px">Total Resumes In List: {{ query_resumes_count }}</h3>
+        <h3 style="padding-left: 10px">Total solutions in list: {{ query_resumes_count }}</h3>
 
 
         <form action="" method="get" accept-charset="utf-8">
@@ -17,6 +17,6 @@
             {% endfor %}
         </ul>
     {% else %}
-        <h3>There are no resumes in databases as of now. Please upload json file to the database!</h3>
+        <h3>There are no solutions in databases as of now. Please upload json file to the database!</h3>
     {% endif %}
 {% endblock %}
